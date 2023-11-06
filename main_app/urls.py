@@ -2,18 +2,16 @@
 from django.urls import include, path
 # import routers
 from rest_framework import routers
+from main_app import views
+from rest_framework.urlpatterns import format_suffix_patterns
  
 # import everything from views
 from .views import *
  
-# define the router
-router = routers.DefaultRouter()
- 
-# define the router path and viewset to be used
-router.register(r'teachers', TeacherViewSet)
- 
 # specify URL Path for rest_framework
 urlpatterns = [
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls'))
+    path('teachers/', views.teacher_list),
+    path('api-auth/', include('rest_framework.urls')),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
