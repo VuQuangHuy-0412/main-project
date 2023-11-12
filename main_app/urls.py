@@ -10,7 +10,7 @@ from .views import *
  
 # specify URL Path for rest_framework
 urlpatterns = [
-    path('teachers/', views.teacher_list),
+    path('teachers/', views.all_teacher),
     path('api-auth/', include('rest_framework.urls')),
 ]
 
