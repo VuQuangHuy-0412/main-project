@@ -16,3 +16,16 @@ class TeacherModel(models.Model):
     def __str__(self):
         return self.full_name
 
+class GroupTeacherModel(models.Model):
+    id = models.BigIntegerField(primary_key=True, db_column='id')
+    group_name = models.TextField(max_length=100, db_column='group_name')
+    description = models.TextField(max_length=500, db_column='description')
+    leader_id = models.BigIntegerField(db_column='leader_id')
+    created_at = models.DateTimeField(db_column='created_at')
+    updated_at = models.DateTimeField(db_column='updated_at')
+
+    class Meta:
+        db_table = 'group_teacher'
+
+    def __str__(self):
+        return self.group_name

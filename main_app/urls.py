@@ -11,6 +11,7 @@ from .views import *
 # specify URL Path for rest_framework
 urlpatterns = [
     path('teachers/', views.all_teacher),
+    path('group-teachers/', views.all_group_teacher),
     path('api-auth/', include('rest_framework.urls')),
 ]
 

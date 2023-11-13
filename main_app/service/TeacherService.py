@@ -1,5 +1,5 @@
 from main_app.models import TeacherModel
-from main_app.dto.teacher import Teacher
+from main_app.dto.Teacher import Teacher
 
 def get_all_teacher():
     teachers = TeacherModel.objects.all()
