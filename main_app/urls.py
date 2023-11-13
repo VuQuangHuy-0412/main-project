@@ -12,6 +12,7 @@ from .views import *
 urlpatterns = [
     path('teachers/', views.all_teacher),
     path('group-teachers/', views.all_group_teacher),
+    path('data/', views.all_data),
     path('api-auth/', include('rest_framework.urls')),
 ]
 
