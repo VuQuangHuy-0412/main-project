@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from django.http import JsonResponse
  
 # import local data
-from .service import TeacherService, GroupTeacherService, GeneticAlgorithm
+from .service import TeacherService, GroupTeacherService, ReadData
  
 # create a viewset
 @api_view(['GET'])
@@ -21,6 +21,6 @@ def all_group_teacher(request):
 
 @api_view(['GET'])
 def all_data(request):
-    data = GeneticAlgorithm.genetic_algorithm()
+    data = ReadData.read_data()
     
     return JsonResponse(data, safe=False)
