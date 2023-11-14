@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'psycopg2',
     'corsheaders',
+    'pandas',
 ]
 
 MIDDLEWARE = [
