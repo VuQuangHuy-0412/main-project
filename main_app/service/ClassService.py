@@ -17,8 +17,8 @@ def get_all_class():
             'time_of_day': class_dto.time_of_day,
             'is_assigned': class_dto.is_assigned,
             'teacher_id': class_dto.teacher_id,
-            'created_at': class_dto.created_at,
-            'updated_at': class_dto.updated_at,
+            'created_at': class_dto.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            'updated_at': class_dto.updated_at.strftime("%Y-%m-%d %H:%M:%S"),
         }
         data.append(class_json)
     

@@ -9,8 +9,8 @@ def get_all_language():
         item_json = {
             'id': item_dto.id,
             'name': item_dto.name,
-            'created_at': item_dto.created_at,
-            'updated_at': item_dto.updated_at,
+            'created_at': item_dto.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            'updated_at': item_dto.updated_at.strftime("%Y-%m-%d %H:%M:%S"),
         }
         data.append(item_json)
     

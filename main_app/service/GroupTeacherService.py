@@ -11,8 +11,8 @@ def get_all_group_teacher():
             'name': group_teacher_dto.name,
             'description': group_teacher_dto.description,
             'leader': group_teacher_dto.leader,
-            'created_at': group_teacher_dto.created_at,
-            'updated_at': group_teacher_dto.updated_at,
+            'created_at': group_teacher_dto.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            'updated_at': group_teacher_dto.updated_at.strftime("%Y-%m-%d %H:%M:%S"),
         }
         data.append(group_teacher_json)
     

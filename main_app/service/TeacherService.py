@@ -10,10 +10,10 @@ def get_all_teacher():
             'id': teacher_dto.id,
             'full_name': teacher_dto.full_name,
             'rank_and_degree': teacher_dto.rank_and_degree,
-            'start_time': teacher_dto.start_time,
-            'birthday': teacher_dto.birthday,
-            'created_at': teacher_dto.created_at,
-            'updated_at': teacher_dto.updated_at,
+            'start_time': teacher_dto.start_time.strftime("%Y-%m-%d"),
+            'birthday': teacher_dto.birthday.strftime("%Y-%m-%d"),
+            'created_at': teacher_dto.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            'updated_at': teacher_dto.updated_at.strftime("%Y-%m-%d %H:%M:%S"),
         }
         data.append(teacher_json)
     

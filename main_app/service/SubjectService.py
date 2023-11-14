@@ -11,8 +11,8 @@ def get_all_subject():
             'name': item_dto.name,
             'code': item_dto.code,
             'group_id': item_dto.group_id,
-            'created_at': item_dto.created_at,
-            'updated_at': item_dto.updated_at,
+            'created_at': item_dto.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            'updated_at': item_dto.updated_at.strftime("%Y-%m-%d %H:%M:%S"),
         }
         data.append(item_json)
     

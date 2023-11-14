@@ -12,5 +12,5 @@ def read_data():
     data['students'] = StudentProjectService.get_all_student()
     data['subjects'] = SubjectService.get_all_subject()
 
-    return json.dump(data)
+    return data
     
