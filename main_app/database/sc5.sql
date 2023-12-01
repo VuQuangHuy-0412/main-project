@@ -167,5 +167,35 @@ create table user_log
 )
     comment 'Lưu lại các thao tác/hành động của user' collate = utf8_unicode_ci;
 
+create table sc5.user_access_token
+(
+    id           bigint auto_increment
+        primary key,
+    user_id      bigint                                   not null,
+    access_token longtext                                 null,
+    created_at   datetime(3) default current_timestamp(3) not null,
+    updated_at   datetime(3) default current_timestamp(3) not null on update current_timestamp(3)
+)
+    charset = utf8mb4;
+
+create index user_access_token_user_id_index
+    on sc5.user_access_token (user_id);
+
+create table sc5.user_refresh_token
+(
+    id            bigint auto_increment
+        primary key,
+    user_id       bigint                                   null,
+    refresh_token longtext                                 null,
+    created_at    datetime(3) default current_timestamp(3) not null,
+    updated_at    datetime(3) default current_timestamp(3) not null on update current_timestamp(3)
+)
+    charset = utf8mb4;
+
+create index user_refresh_token_user_id_index
+    on sc5.user_refresh_token (user_id);
+
 INSERT INTO sc5.user (id, username, password, full_name, status, created_at, login_fail_count, last_fail_login, roles, mobile, email) VALUES (1, 'huyvq74', '$2a$10$2zsCZF3bYFViAn6YiqJ1C.Y7Xb4pPflbPZ/Z/SM9iGBDUG1uplZn2', 'Vũ Quang Huy', 1, '2022-08-05 11:53:28', 0, '2023-01-09 18:27:23', 'admin', '0866605601', null);
+INSERT INTO sc5.role (id, code, description, permissions) VALUES (1, 'admin', 'quyền lớn nhất trong hệ thống', '/');
+
 
