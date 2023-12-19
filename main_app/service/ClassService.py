@@ -5,7 +5,7 @@ def get_all_class():
     classes = ClassModel.objects.all()
     data = list()
     for item in classes:
-        class_dto = Class(item.id, item.name, item.code, item.semester, item.subject_id, item.week, item.day_of_week, item.time_of_day, item.is_assigned, item.teacher_id, item.created_at, item.updated_at)
+        class_dto = Class(item.id, item.name, item.code, item.semester, item.subject_id, item.week, item.day_of_week, item.time_of_day, item.is_assigned, item.teacher_id, item.time_of_class, item.language_id, item.created_at, item.updated_at)
         class_json = {
             'id': class_dto.id,
             'name': class_dto.name,
@@ -17,6 +17,8 @@ def get_all_class():
             'time_of_day': class_dto.time_of_day,
             'is_assigned': class_dto.is_assigned,
             'teacher_id': class_dto.teacher_id,
+            'time_of_class': class_dto.time_of_class,
+            'language_id': class_dto.language_id,
             'created_at': class_dto.created_at.strftime("%Y-%m-%d %H:%M:%S"),
             'updated_at': class_dto.updated_at.strftime("%Y-%m-%d %H:%M:%S"),
         }

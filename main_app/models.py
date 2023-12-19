@@ -5,6 +5,9 @@ class TeacherModel(models.Model):
     id = models.BigIntegerField(primary_key=True, db_column='id')
     full_name = models.TextField(max_length=100, db_column='full_name')
     rank_and_degree = models.TextField(max_length=50, db_column='rank_and_degree')
+    gd_time = models.IntegerField(db_column='gd_time')
+    hd_time = models.IntegerField(db_column='hd_time')
+    rating = models.FloatField(db_column='rating')
     start_time = models.DateField(db_column='start_time')
     birthday = models.DateField(db_column='birthday')
     created_at = models.DateTimeField(db_column='created_at')
@@ -41,6 +44,8 @@ class ClassModel(models.Model):
     time_of_day = models.TextField(max_length=50, db_column='time_of_day')
     is_assigned = models.SmallIntegerField(db_column='is_assigned')
     teacher_id = models.BigIntegerField(db_column='teacher_id')
+    time_of_class = models.IntegerField(db_column='time_of_class')
+    language_id = models.BigIntegerField(db_column='language_id')
     created_at = models.DateTimeField(db_column='created_at')
     updated_at = models.DateTimeField(db_column='updated_at')
 
