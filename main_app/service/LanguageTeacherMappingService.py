@@ -9,7 +9,7 @@ def get_all_language_teacher_mapping():
         item_json = {
             'id': item_dto.id,
             'teacher_id': item_dto.teacher_id,
-            'group_id': item_dto.language_id,
+            'language_id': item_dto.language_id,
         }
         data.append(item_json)
     

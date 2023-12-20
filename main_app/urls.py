@@ -13,6 +13,7 @@ urlpatterns = [
     path('teachers/', views.all_teacher),
     path('group-teachers/', views.all_group_teacher),
     path('data/', views.all_data),
+    path('genetic-algorithm/', views.async_view),
     path('api-auth/', include('rest_framework.urls')),
 ]
 

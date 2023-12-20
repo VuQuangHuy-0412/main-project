@@ -1,7 +1,6 @@
 from main_app.service import TeacherService, GroupTeacherService, ClassService, GroupTeacherMappingService, LanguageService, LanguageTeacherMappingService, StudentProjectService, SubjectService
-import json
-
 def read_data():
+    print("abc")
     data = dict()
     data['teachers'] = TeacherService.get_all_teacher()
     data['group_teachers'] = GroupTeacherService.get_all_group_teacher()
@@ -17,6 +16,7 @@ def read_data():
     data['num_of_groups'] = len(data['group_teachers'])
     data['num_of_classes'] = len(data['classes'])
     data['num_of_subjects'] = len(data['subjects'])
+    data['num_of_students'] = len(data['students'])
 
     data['class_conflict'] = list()
     for i in range(0, data['num_of_classes']):
@@ -34,6 +34,27 @@ def read_data():
             conflict.append(conf)
         data['class_conflict'].append(conflict)
 
+    data['language_teacher_mapping'] = list()
+    for i in range(0, len(data['teachers'])):
+        lt = list()
+        for j in range(0, len(data['languages'])):
+            lt.append(0)
+        data['language_teacher_mapping'].append(lt)
+
+    for i in range (0, len(data['lt_mappings'])):
+        item = data['lt_mappings'][i]
+        data['language_teacher_mapping'][item['teacher_id'] - 1][item['language_id'] - 1] = 1
+
+    data['group_teacher_mapping'] = list()
+    for i in range(0, len(data['teachers'])):
+        gt = list()
+        for j in range(0, len(data['group_teachers'])):
+            gt.append(0)
+        data['group_teacher_mapping'].append(gt)
+
+    for i in range (0, len(data['gt_mappings'])):
+        item = data['gt_mappings'][i]
+        data['group_teacher_mapping'][item['teacher_id'] - 1][item['group_id'] - 1] = 1
     return data
 
 def generateListFromString(s: str):
